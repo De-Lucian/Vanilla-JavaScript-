@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepalese Arts and Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+            <h1>Printastic Art and Fashion</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="connect.html">Connect</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <section id="categories" class="container">
+        <div class="category-tags">
+            <span onclick="filterProducts('Traditional Art')">Traditional Art</span>
+            <span onclick="filterProducts('Thankas')">Thankas</span>
+            <span onclick="filterProducts('Drawing')">Drawing</span>
+            <span onclick="filterProducts('Pottery')">Pottery</span>
+            <span onclick="filterProducts('Handicraft')">Handicraft</span>
+            <span onclick="filterProducts('Textile')">Textile</span>
+        </div>
+    </section>
+    <main class="container">
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                </select>
+                <input placeholder="Search" class="search-input border">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div id="product-list">
+                <article class="product" data-category="Handmade Jewelry">
+                    <h3>Handmade Jewelry</h3>
+                    <p>Our exquisite jewelry pieces are crafted using traditional techniques passed down through generations.</p>
+                </article>
+                <article class="product" data-category="Wood Carvings">
+                    <h3>Wood Carvings</h3>
+                    <p>Each wood carving is a masterpiece, reflecting the intricate artistry of Nepalese craftsmen.</p>
+                </article>
+                <article class="product" data-category="Textiles and Fabrics">
+                    <h3>Textiles and Fabrics</h3>
+                    <p>Our textiles are handwoven with love and care, representing the vibrant culture of Nepal.</p>
+                </article>
+            </div>
+        </section>
+        <section id="vendor">
+            <h2>Post Your Art</h2>
+            <form id="vendor-form">
+                <label for="art-title">Art Title:</label>
+                <input type="text" id="art-title" name="art-title" required>
+                
+                <label for="art-description">Description:</label>
+                <textarea id="art-description" name="art-description" required></textarea>
+                
+                <label for="art-image">Upload Image:</label>
+                <input type="file" id="art-image" name="art-image" accept="image/*" required>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>Contact us at info@nepalart.com | Follow us on social media: Facebook, Instagram, Twitter</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                if (category === 'All' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
